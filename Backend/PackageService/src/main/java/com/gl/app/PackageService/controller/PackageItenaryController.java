@@ -1,0 +1,25 @@
+package com.gl.app.PackageService.controller;
+
+import com.gl.app.PackageService.entity.PackageItenary;
+import com.gl.app.PackageService.payload.PackageItenaryDto;
+import com.gl.app.PackageService.service.PackageItenaryService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/packageItenary")
+public class PackageItenaryController {
+    private final PackageItenaryService packageItenaryService;
+
+    public PackageItenaryController(PackageItenaryService packageItenaryService) {
+        this.packageItenaryService = packageItenaryService;
+    }
+
+    @PostMapping("/create/{packageId}")
+    public ResponseEntity<PackageItenaryDto> createPackageItenary(@RequestBody PackageItenaryDto packageItenaryDto, @PathVariable String packageId){
+        PackageItenaryDto packageItenaryDto1 = packageItenaryService.createPackageItenary(packageItenaryDto,packageId);
+        return new ResponseEntity<>(packageItenaryDto1, HttpStatus.CREATED);
+    }
+
+}
