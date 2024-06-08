@@ -16,12 +16,10 @@ public class UsersWishListServiceImpl implements UsersWishListService {
 
     private final UsersWishListRepository usersWishListRepository;
     private final UsersRepository usersRepository;
-
     public UsersWishListServiceImpl(UsersWishListRepository usersWishListRepository, UsersRepository usersRepository) {
         this.usersWishListRepository = usersWishListRepository;
         this.usersRepository = usersRepository;
     }
-
     public UsersDto mapToDto (Users users){
         UsersDto userDTO = new UsersDto();
         userDTO.setUserID(users.getUserID());
@@ -30,13 +28,19 @@ public class UsersWishListServiceImpl implements UsersWishListService {
         userDTO.setUserPhone(users.getUserPhone());
         userDTO.setUserAddress(users.getUserAddress());
         userDTO.setUserRole(users.getUserRole());
-
         userDTO.setUsersWishList(users.getUsersWishLists().stream()
                 .map(UsersWishList::getWishlistID).toList());
 
         return userDTO;
     }
-
+    public UsersWishList addWishlist(String userID, String wishlistID) {
+        Users users = usersRepository.findById(userID)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        var wishList = new UsersWishList();
+        wishList.setWishlistID(wishlistID);
+        wishList.setUsers(users);
+        return usersWishListRepository.save(wishList);
+    }
     public UsersDto getWishList(String userID, String wishListID){
         Users users=usersRepository.findByUserIdAndWishListID( userID,wishListID)
                 .orElseThrow(()->new ResourceNotFoundException("user not found"));
