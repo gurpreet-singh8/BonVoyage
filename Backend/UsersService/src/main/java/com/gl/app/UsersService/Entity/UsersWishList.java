@@ -1,4 +1,5 @@
 package com.gl.app.UsersService.Entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -18,5 +19,6 @@ public class UsersWishList {
     @ManyToOne
     @JoinColumn(name = "userID", nullable = false)
     @NotNull
+    @JsonBackReference
     private Users users;
 }

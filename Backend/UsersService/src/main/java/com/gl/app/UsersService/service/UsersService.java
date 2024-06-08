@@ -8,4 +8,5 @@ public interface UsersService {
     UsersDto registerUser(UsersDto usersDto);
     UsersDto loginUser(String userEmail, String userPassword);
     UsersDto getUserByName(String userName);
+
 }
