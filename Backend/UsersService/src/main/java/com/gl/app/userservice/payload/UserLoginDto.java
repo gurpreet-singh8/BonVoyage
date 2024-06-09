@@ -12,8 +12,8 @@ import lombok.Setter;
 
 public class UserLoginDto {
     @NotNull(message = "Email cannot be null")
-    @Email(message = "Must be a valid email")
+    @Email(message = "Enter a valid email")
     private String email;
-    @NotNull(message = "Password cannot be null or empty")
+    @NotNull(message = "Password cannot be empty")
     private String password;
 }

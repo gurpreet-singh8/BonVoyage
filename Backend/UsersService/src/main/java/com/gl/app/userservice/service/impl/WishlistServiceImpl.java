@@ -53,7 +53,7 @@ public class WishlistServiceImpl implements WishlistService {
     }
 
     @Override
-    public ApiResponseDto getWishlist(String userId, String wishlistId) {
+    public ResponseDto getWishlist(String userId, String wishlistId) {
         checkAndGetUser(userId);
         Wishlist wishlist = checkAndGetWishlist(userId, wishlistId);
 
@@ -67,7 +67,7 @@ public class WishlistServiceImpl implements WishlistService {
             }
         });
 
-        ApiResponseDto apiResponseDto = new ApiResponseDto();
+        ResponseDto apiResponseDto = new ResponseDto();
         apiResponseDto.setStatus("success");
         apiResponseDto.setResults(packageDtoList.size()+"");
         apiResponseDto.setData(packageDtoList);
@@ -75,7 +75,7 @@ public class WishlistServiceImpl implements WishlistService {
     }
 
     @Override
-    public ApiResponseDto updateWishlist(String userId, WishlistDto wishlistDto) {
+    public ResponseDto updateWishlist(String userId, WishlistDto wishlistDto) {
         checkAndGetUser(userId);
         Wishlist wishlist = checkAndGetWishlist(userId, wishlistDto.getWishlistId());
 
@@ -91,7 +91,7 @@ public class WishlistServiceImpl implements WishlistService {
             }
         });
 
-        ApiResponseDto apiResponseDto = new ApiResponseDto();
+        ResponseDto apiResponseDto = new ResponseDto();
         apiResponseDto.setStatus("success");
         apiResponseDto.setResults(packageDtoList.size()+"");
         apiResponseDto.setData(packageDtoList);

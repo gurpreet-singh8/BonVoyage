@@ -12,7 +12,7 @@ import java.util.Optional;
 @Setter
 @NoArgsConstructor
 
-public class ApiResponseDto {
+public class ResponseDto {
     private String status;
     private String results;
     private List<PackageDto> data;

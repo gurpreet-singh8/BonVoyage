@@ -1,6 +1,6 @@
 package com.gl.app.userservice.controller;
 
-import com.gl.app.userservice.payload.ApiResponseDto;
+import com.gl.app.userservice.payload.ResponseDto;
 import com.gl.app.userservice.payload.WishlistDto;
 import com.gl.app.userservice.service.WishlistService;
 import lombok.AllArgsConstructor;
@@ -20,22 +20,18 @@ public class WishlistController {
     }
 
     @PostMapping("/{wishlistId}/{packageId}")
-    ResponseEntity<String> addPackageToWishlist(@PathVariable String userId,
-                                                @PathVariable String wishlistId,
-                                                @PathVariable String packageId){
+    ResponseEntity<String> addPackageToWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
         return ResponseEntity.ok(wishlistService.addPackageToWishlist(userId,wishlistId,packageId));
     }
 
     @DeleteMapping("/{wishlistId}/{packageId}")
-    ResponseEntity<String> deletePackageWishlist(@PathVariable String userId,
-                                                @PathVariable String wishlistId,
-                                                @PathVariable String packageId){
+    ResponseEntity<String> deletePackageWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
         return ResponseEntity.ok(wishlistService.deletePackageWishlist(userId,wishlistId,packageId));
     }
 
 
     @GetMapping("/{wishlistId}")
-    public ResponseEntity<ApiResponseDto> getWishlist(@PathVariable String userId,@PathVariable String wishlistId){
+    public ResponseEntity<ResponseDto> getWishlist(@PathVariable String userId,@PathVariable String wishlistId){
         return ResponseEntity.ok(wishlistService.getWishlist(userId,wishlistId));
     }
 
