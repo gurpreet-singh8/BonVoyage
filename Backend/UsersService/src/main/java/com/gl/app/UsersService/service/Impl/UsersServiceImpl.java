@@ -48,6 +48,7 @@ public class UsersServiceImpl implements UsersService {
     }
     @Override
     public UsersDto registerUser(UsersDto usersDto) {
+        System.out.println(usersDto.toString());
         Users users = mapToEntity(usersDto);
         List<String> wishListIds = usersDto.getUsersWishList();
         List<UsersWishList> wishLists = new ArrayList<>();
