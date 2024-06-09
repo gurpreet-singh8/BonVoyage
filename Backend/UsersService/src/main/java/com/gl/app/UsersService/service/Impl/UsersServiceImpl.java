@@ -30,6 +30,20 @@ public class UsersServiceImpl implements UsersService {
         users.setUserPassword(usersDto.getUserPassword());
         users.setUserAddress(usersDto.getUserAddress());
         users.setUserRole(usersDto.getUserRole());
+        if (usersDto.getUsersWishList() != null) {
+            // Set the user reference
+            List<UsersWishList> wishLists = new ArrayList<>();
+            for (String s : usersDto.getUsersWishList()) {
+                UsersWishList wishList = new UsersWishList();
+                wishList.setWishlistID(s);
+                wishList.setUsers(users); // Set the user reference
+                UsersWishList apply = wishList;
+                wishLists.add(apply);
+            }
+            users.setUsersWishLists(wishLists);
+        } else {
+            users.setUsersWishLists(new ArrayList<>()); // Initialize with an empty list
+        }
         return users;
     }
     public UsersDto mapToDto (Users users){
@@ -40,28 +54,26 @@ public class UsersServiceImpl implements UsersService {
         userDTO.setUserPhone(users.getUserPhone());
         userDTO.setUserAddress(users.getUserAddress());
         userDTO.setUserRole(users.getUserRole());
-
-        userDTO.setUsersWishList(users.getUsersWishLists().stream()
-                .map(UsersWishList::getWishlistID).toList());
-
+        if (users.getUsersWishLists() != null) {
+            userDTO.setUsersWishList(users.getUsersWishLists().stream()
+                    .map(UsersWishList::getWishlistID).toList());
+        }else {
+            userDTO.setUsersWishList(new ArrayList<>());
+        }
         return userDTO;
     }
     @Override
     public UsersDto registerUser(UsersDto usersDto) {
         System.out.println(usersDto.toString());
         Users users = mapToEntity(usersDto);
-        List<String> wishListIds = usersDto.getUsersWishList();
-        List<UsersWishList> wishLists = new ArrayList<>();
-        for(String id:wishListIds){
-            UsersWishList usersWishList = new UsersWishList();
-            usersWishList.setWishlistID(id);
-            usersWishList.setUsers(users);
-            wishLists.add(usersWishList);
+        if (users.getUsersWishLists() != null) {
+            for (UsersWishList wishList : users.getUsersWishLists()) {
+                wishList.setUsers(users);
+            }
         }
-        users.setUsersWishLists(wishLists);
-        usersRepository.save(users);
-        usersWishListRepository.saveAll(wishLists);
-        return mapToDto(users);
+        Users savedUser = usersRepository.save(users);
+        return mapToDto(savedUser);
+
     }
 
     public UsersDto loginUser(String userEmail, String userPassword){

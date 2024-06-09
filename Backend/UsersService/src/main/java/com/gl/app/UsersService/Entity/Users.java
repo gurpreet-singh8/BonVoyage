@@ -1,4 +1,5 @@
 package com.gl.app.UsersService.Entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -36,6 +37,7 @@ public class Users {
     private  String userRole;
 
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<UsersWishList> usersWishLists;
 
 }
