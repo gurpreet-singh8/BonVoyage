@@ -19,9 +19,6 @@ public class BookingsController {
     public BookingsController(BookingsService bookingsService) {
         this.bookingsService = bookingsService;
     }
-
-
-
     @GetMapping("/{userId}")
     public List<BookingsDto> getAllBookings(@PathVariable String userId){
         List<BookingsDto> bookingsDto = bookingsService.getAllBookings(userId);

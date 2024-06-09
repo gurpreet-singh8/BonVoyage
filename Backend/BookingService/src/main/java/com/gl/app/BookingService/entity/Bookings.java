@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+
+import com.gl.app.BookingService.BookingServiceApplication;
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,16 +19,18 @@ public class Bookings {
 
     String userId;
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     String bookingId;
     String packageId;
     String packageName;
-    Date bookingDate;
+    String bookingDate;
     String packageImage;
     int bookingPerson;
     int bookingRooms;
 
-
-
-
+    @PrePersist
+    private void generateId() {
+        if (this.bookingId == null) {
+            this.bookingId = BookingServiceApplication.generateId("B");
+        }
+    }
 }

@@ -17,7 +17,7 @@ public class BookingsDto {
     String bookingId;
     String packageId;
     String packageName;
-    Date bookingDate;
+    String bookingDate;
     String packageImage;
     int bookingPerson;
     int bookingRooms;
