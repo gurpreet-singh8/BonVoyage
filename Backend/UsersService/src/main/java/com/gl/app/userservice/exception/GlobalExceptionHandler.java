@@ -1,6 +1,6 @@
 package com.gl.app.userservice.exception;
 
-import com.gl.app.userservice.payload.ErrorDetailsResponse;
+import com.gl.app.userservice.payload.ErrorResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -22,7 +22,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler
     protected ResponseEntity<Object> handleResourceNotFoundException(
             ResourceNotFoundException exception, WebRequest webRequest) {
-        ErrorDetailsResponse errorResponse = new ErrorDetailsResponse(
+        ErrorResponse errorResponse = new ErrorResponse(
                 LocalDate.now(),
                 exception.getMessage(),
                 webRequest.getDescription(false)

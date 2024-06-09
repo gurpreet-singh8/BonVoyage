@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserByEmailAndPassword(String email, String password) {
+    public UserDto loginUser(String email, String password) {
         User user= userRepository.findByEmailAndPassword(email,password).orElseThrow(
                 ()-> new ResourceNotFoundException("User","email",email)
         );

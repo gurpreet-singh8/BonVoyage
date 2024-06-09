@@ -3,6 +3,9 @@ package com.gl.app.PackageService.controller;
 import com.gl.app.PackageService.payload.PackageDto;
 import com.gl.app.PackageService.payload.PackageResponse;
 import com.gl.app.PackageService.service.PackageService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +25,7 @@ public class PackageController {
     }
 
     @PostMapping("/createPackage")
-    public ResponseEntity<PackageDto> createPackage(@RequestBody PackageDto packageDto){
+    public ResponseEntity<PackageDto> createPackage(@Valid @RequestBody PackageDto packageDto){
         return new ResponseEntity<>(packageService.createPackage(packageDto), HttpStatus.CREATED);
     }
 
@@ -32,12 +35,12 @@ public class PackageController {
     }
 
     @GetMapping("packages/{country}")
-    public PackageResponse getPackagesByCountry(@PathVariable String country){
+    public PackageResponse getPackagesByCountry(@Valid @PathVariable String country){
         return packageService.getPackageByCountry(country);
     }
 
     @GetMapping("onepackage/{id}")
-    public PackageDto getPackageById(@PathVariable String id){
+    public PackageDto getPackageById(@Valid @PathVariable String id){
         return packageService.getPackageById(id);
     }
 }

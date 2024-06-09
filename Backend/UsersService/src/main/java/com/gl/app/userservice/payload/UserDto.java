@@ -20,20 +20,20 @@ import java.util.List;
 public class UserDto {
     private String id;
 
-    @NotNull(message="Name cannot be null or empty")
+    @NotNull(message="Name cannot be empty")
     private String name;
 
-    @NotNull(message="Email cannot be null or empty")
-    @Email(message= "Must be a valid email")
+    @NotNull(message="Email cannot be empty")
+    @Email(message= "Enter a valid email")
     private String email;
 
-    @NotNull(message="Password cannot be null or empty")
+    @NotNull(message="Password cannot be empty")
     private String password;
 
-    @NotNull(message="Phone cannot be null or empty")
+    @NotNull(message="Phone cannot be empty")
     private String phone;
 
-    @NotNull(message="Address cannot be null or empty")
+    @NotNull(message="Address cannot be empty")
     private String address;
 
     private String role;
