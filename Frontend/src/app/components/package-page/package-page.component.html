@@ -53,44 +53,59 @@
             </div>
         </div>
         <div class="package-order">
-            <div>
-                <p class="head-details">User Name:</p>
-                <p>Gurpreet Singh</p>
+            <div class="package-order-details">
+           
+                <div>
+                    <p class="head-details">Package Name:</p>
+                    <p>{{packageData.packageName}}</p>
+                </div>
+                <div>
+                    <p class="head-details">Package price:</p>
+                    <p>{{packageData.packagePrice}}</p>
+                </div>
+                
+                <div>
+                    <p class="head-details">Max People:</p>
+                    <p>{{packageData.maxPeople}}</p>
+                </div>
+                <div>
+                    <p class="head-details">Min Age:</p>
+                    <p>{{packageData.minAge}}</p>
+                </div>
+                <div>
+                    <p class="head-details">Available Date:</p>
+                    <p>{{packageData.availableDate}}</p>
+                </div>
+                <div>
+                    <p class="head-details">Language:</p>
+                    <p>{{packageData.packageLanguage}}</p>
+                </div>
+                <div>
+                    <p class="head-details">Rating:</p>
+                    <p>{{packageData.packageRating}}/5 - ({{packageData.packageReviews}})</p>
+                </div>
+                <div>
+                    <p class="head-details">Available Date:</p>
+                    <p>{{packageData.availableDate}}</p>
+                </div>
+            <button>Add To WishList</button>
+
             </div>
-            <div>
-                <p class="head-details">Package Name:</p>
-                <p>{{packageData.packageName}}</p>
-            </div>
-            <div>
-                <p class="head-details">Package price:</p>
-                <p>{{packageData.packagePrice}}</p>
+            <div class="package-order-form">
+                <form class="booking-form" [formGroup]="myForm" (submit)="onSubmit()">
+                    <div>
+                        <label for="bookingPerson" class="head-details">Person:</label>
+                        <input type="text" id="bookingPerson" name="bookingPerson" placeholder="Enter number of person" formControlName="bookingPerson"  required>
+                    </div>
+                    <div>
+                        <label for="bookingRooms" class="head-details">Rooms:</label>
+                        <input type="bookingRooms" id="bookingRooms" name="bookingRooms" placeholder="Enter number of Rooms" formControlName="bookingRooms" required>
+                    </div>
+                    <button type="submit">Submit Booking</button>
+                </form>
             </div>
             
-            <div>
-                <p class="head-details">Max People:</p>
-                <p>{{packageData.maxPeople}}</p>
-            </div>
-            <div>
-                <p class="head-details">Min Age:</p>
-                <p>{{packageData.minAge}}</p>
-            </div>
-            <div>
-                <p class="head-details">Available Date:</p>
-                <p>{{packageData.availableDate}}</p>
-            </div>
-            <div>
-                <p class="head-details">Language:</p>
-                <p>{{packageData.packageLanguage}}</p>
-            </div>
-            <div>
-                <p class="head-details">Rating:</p>
-                <p>{{packageData.packageRating}}/5 - ({{packageData.packageReviews}})</p>
-            </div>
-            <div>
-                <p class="head-details">Available Date:</p>
-                <p>{{packageData.availableDate}}</p>
-            </div>
-            <button>Book Now</button>
+           
         </div>
     </div>
 
