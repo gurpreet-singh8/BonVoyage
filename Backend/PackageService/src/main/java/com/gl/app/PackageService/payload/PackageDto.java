@@ -20,7 +20,6 @@ import java.util.List;
 @Setter
 
 public class PackageDto {
-    @NotBlank
     private String packageID;
 
     @NotBlank
@@ -63,8 +62,7 @@ public class PackageDto {
     @NotBlank
     private String packageLanguage;
 
-    @NotNull
-    @Size(min = 1)
+
     private List<PackageItenaryDto> packageItenary;
 
     @NotBlank

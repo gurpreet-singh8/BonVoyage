@@ -25,7 +25,7 @@ export const routes: Routes = [
         component:AllPackageComponent
     },
     {
-        path:"package",
+        path:"package/:packageID",
         component:PackagePageComponent
     },
     {
