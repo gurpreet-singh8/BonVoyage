@@ -1,6 +1,5 @@
 package com.gl.app.PackageService.controller;
 
-import com.gl.app.PackageService.entity.PackageItenary;
 import com.gl.app.PackageService.payload.PackageItenaryDto;
 import com.gl.app.PackageService.service.PackageItenaryService;
 

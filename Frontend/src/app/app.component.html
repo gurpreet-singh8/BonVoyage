@@ -1,2 +1,43 @@
+<!-- <nav>
+    <a routerLink="/">Home</a>
+    <br>
+    <a routerLink="/signup">Sign Up</a>
+    <br>
+    <a routerLink="/signin">Sign in</a>
+  </nav>
+  <router-outlet></router-outlet>
 
-<router-outlet />
+ -->
+ <header>
+    <nav>
+      <div class="left">
+        <a routerLink="/">BonVoyage</a>
+      </div>
+      <div class="center">
+        <a routerLink="/">Home</a>
+        <a routerLink="/packages">Packages</a>
+        <a routerLink="/faqs">FAQs</a>
+      </div>
+      <div class="right">
+        <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+        <a routerLink="/signin" routerLinkActive="active">Sign In</a>
+      </div> 
+    </nav>
+  </header>
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <h2>BonVoyage</h2>
+      <p>Your travel companion</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  

@@ -5,7 +5,6 @@ import com.gl.app.userservice.entity.Wishlist;
 import com.gl.app.userservice.payload.UserDto;
 import com.gl.app.userservice.payload.WishlistDto;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 
