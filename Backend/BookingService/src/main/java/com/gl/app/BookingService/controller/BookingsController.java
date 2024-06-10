@@ -19,21 +19,25 @@ public class BookingsController {
     public BookingsController(BookingsService bookingsService) {
         this.bookingsService = bookingsService;
     }
-    @GetMapping("/{userId}")
-    public List<BookingsDto> getAllBookings(@PathVariable String userId){
-        List<BookingsDto> bookingsDto = bookingsService.getAllBookings(userId);
+    @CrossOrigin("*")
+    @GetMapping()
+    public List<BookingsDto> getAllBookings(){
+        List<BookingsDto> bookingsDto = bookingsService.getAllBookings();
         return bookingsDto;
     }
+    @CrossOrigin("*")
     @PutMapping
     public ResponseEntity<BookingsDto> updateBookings(@RequestBody BookingsDto bookingsDto){
         BookingsDto bookingsDto1=bookingsService.updateBookings(bookingsDto);
         return new ResponseEntity<>(bookingsDto1,HttpStatus.OK);
     }
+    @CrossOrigin("*")
     @PostMapping
     public ResponseEntity<BookingsDto> createBookings(@RequestBody BookingsDto bookingsDto){
         BookingsDto bookingsDto1 = bookingsService.createBookings(bookingsDto);
         return new ResponseEntity<>(bookingsDto1,HttpStatus.CREATED);
     }
+    @CrossOrigin("*")
     @DeleteMapping("/{bookingId}")
     public String deleteBookings(@PathVariable String bookingId){
         return bookingsService.deleteBookings(bookingId);
