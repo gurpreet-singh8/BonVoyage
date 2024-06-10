@@ -1,14 +1,12 @@
 
 .package-img{
-    background-image: url("../../../../public/img/img2.jpg");
     width: 100%;
-    height: 60vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
+    height: 50vh;
+    object-fit: cover;
+    object-position: center;
 }
 .package-container{
+    padding: 10px;
     display: flex;
     gap:2%;
 }
@@ -38,23 +36,42 @@
 }
 .package-order
 {
-    background-color: #1d184c;
     height: 100%;
-    padding: 20px;
     margin-top: 30px;
-    width: 25%;
+    width: 35%;
     color: white;
-    flex-direction: column;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
 }
-.package-order>div{
+.package-order-details,.package-order-form{
+    background-color: #1d184c;
+    padding: 20px;
+}
+.booking-form>div{
     display: flex;
+    justify-content: start;
+    padding-bottom: 20px;
+}
+.booking-form>div>label{
+    width: 40%;
+    text-align: start;
 
+}
+.booking-form>div>input{
+    width: 100%;
+    padding: 10px;
+}
+.package-order-details>div{
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
 }
-.package-order>button{
+.package-order-details>button,.booking-form>button{
     width: 90%;
     cursor: pointer;
     padding: 15px 20px;
@@ -68,4 +85,24 @@
 }
 .head-details{
     font-weight: bold;
+}
+@media (max-width: 858px) {
+    
+    .package-img{
+        height: 30vh;
+        
+    }
+    .package-container{
+        font-size: 0.8rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .info-container,.package-info,.package-name-disc{
+        width: 100%;
+    }
+    .package-order{
+        width: 90%;
+        flex-direction: column-reverse;
+    }
 }

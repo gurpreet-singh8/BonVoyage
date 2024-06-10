@@ -24,21 +24,25 @@ public class PackageController {
         this.packageResponse = packageResponse;
     }
 
+    @CrossOrigin("*")
     @PostMapping("/createPackage")
     public ResponseEntity<PackageDto> createPackage(@Valid @RequestBody PackageDto packageDto){
         return new ResponseEntity<>(packageService.createPackage(packageDto), HttpStatus.CREATED);
     }
 
+    @CrossOrigin("*")
     @GetMapping("/getPackages")
     public PackageResponse getAllPackages(){
         return packageService.getAllPackages();
     }
 
+    @CrossOrigin("*")
     @GetMapping("packages/{country}")
     public PackageResponse getPackagesByCountry(@Valid @PathVariable String country){
         return packageService.getPackageByCountry(country);
     }
 
+    @CrossOrigin("*")
     @GetMapping("onepackage/{id}")
     public PackageDto getPackageById(@Valid @PathVariable String id){
         return packageService.getPackageById(id);
