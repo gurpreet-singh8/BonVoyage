@@ -2,6 +2,8 @@
 
 html, body { height: 100%;
     background-color: #e7dff450;
+    background-image: url("../public/img/back4.gif");
+  
  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *{
