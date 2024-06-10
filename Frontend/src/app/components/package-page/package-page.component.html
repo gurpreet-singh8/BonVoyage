@@ -1,113 +1,103 @@
 <section>
-    <img src={{packageData.packageImage}} class="package-img" onerror="this.onerror=null; this.src='https://st2.depositphotos.com/3837271/5507/i/450/depositphotos_55072853-stock-photo-time-to-travel-wooden-sign.jpg';"/>
+    <img
+      src="{{packageData.packageImage}}"
+      class="package-img"
+      onerror="this.onerror=null; this.src='https://st2.depositphotos.com/3837271/5507/i/450/depositphotos_55072853-stock-photo-time-to-travel-wooden-sign.jpg';"
+    />
     <div class="package-container">
-        <div class="info-container">
-            <div class="package-name-disc">
-                <h2 style="margin: 0;">{{packageData.packageCountry}}</h2>
-                <p style="text-align: right;">- {{packageData.packageCity}}</p>
-                <h6>{{packageData.packageName}}</h6>
-                <p>{{packageData.packageDesc}}</p>
-
-            </div>
-            <div class="package-info">
-                <h3 style="margin: 0;">Highlights</h3>
-                <p>-{{packageData.packageDuration}}</p>
-                <div class="days-container">
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 1</p>
-                        <p class="dayTask">REST DAY</p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 2</p>
-                        <p class="dayTask"> Habana Classic City Tour – Old Havana and its fortifications are a UNESCO
-                            World Heritage site. Join us on this tour to experience the majesty of colonial Havana. </p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 1</p>
-                        <p class="dayTask">REST DAY</p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 2</p>
-                        <p class="dayTask"> Habana Classic City Tour – Old Havana and its fortifications are a UNESCO
-                            World Heritage site. Join us on this tour to experience the majesty of colonial Havana. </p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 1</p>
-                        <p class="dayTask">REST DAY</p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 2</p>
-                        <p class="dayTask"> Habana Classic City Tour – Old Havana and its fortifications are a UNESCO
-                            World Heritage site. Join us on this tour to experience the majesty of colonial Havana. </p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 1</p>
-                        <p class="dayTask">REST DAY</p>
-                    </div>
-                    <div class="day1 day">
-                        <p class="dayNo">DAY 2</p>
-                        <p class="dayTask"> Habana Classic City Tour – Old Havana and its fortifications are a UNESCO
-                            World Heritage site. Join us on this tour to experience the majesty of colonial Havana. </p>
-                    </div>
-                </div>
-            </div>
+      <div class="info-container">
+        <div class="package-name-disc">
+          <h2 style="margin: 0;">{{packageData.packageCountry}}</h2>
+          <p style="text-align: right;">- {{packageData.packageCity}}</p>
+          <h6>{{packageData.packageName}}</h6>
+          <p>{{packageData.packageDesc}}</p>
         </div>
-        <div class="package-order">
-            <div class="package-order-details">
-           
-                <div>
-                    <p class="head-details">Package Name:</p>
-                    <p>{{packageData.packageName}}</p>
-                </div>
-                <div>
-                    <p class="head-details">Package price:</p>
-                    <p>{{packageData.packagePrice}}</p>
-                </div>
-                
-                <div>
-                    <p class="head-details">Max People:</p>
-                    <p>{{packageData.maxPeople}}</p>
-                </div>
-                <div>
-                    <p class="head-details">Min Age:</p>
-                    <p>{{packageData.minAge}}</p>
-                </div>
-                <div>
-                    <p class="head-details">Available Date:</p>
-                    <p>{{packageData.availableDate}}</p>
-                </div>
-                <div>
-                    <p class="head-details">Language:</p>
-                    <p>{{packageData.packageLanguage}}</p>
-                </div>
-                <div>
-                    <p class="head-details">Rating:</p>
-                    <p>{{packageData.packageRating}}/5 - ({{packageData.packageReviews}})</p>
-                </div>
-                <div>
-                    <p class="head-details">Available Date:</p>
-                    <p>{{packageData.availableDate}}</p>
-                </div>
-            <button>Add To WishList</button>
-
+        <div class="package-info">
+          <h3 style="margin: 0;">Highlights</h3>
+          <p>-{{packageData.packageDuration}}</p>
+          <div class="days-container">
+            <div class="day1 day">
+              <p class="dayNo">DAY 1</p>
+              <p class="dayTask">REST DAY</p>
             </div>
-            <div class="package-order-form">
-                <form class="booking-form" [formGroup]="myForm" (submit)="onSubmit()">
-                    <div>
-                        <label for="bookingPerson" class="head-details">Person:</label>
-                        <input type="text" id="bookingPerson" name="bookingPerson" placeholder="Enter number of person" formControlName="bookingPerson"  required>
-                    </div>
-                    <div>
-                        <label for="bookingRooms" class="head-details">Rooms:</label>
-                        <input type="bookingRooms" id="bookingRooms" name="bookingRooms" placeholder="Enter number of Rooms" formControlName="bookingRooms" required>
-                    </div>
-                    <button type="submit">Submit Booking</button>
-                </form>
-            </div>
-            
-           
+            <!-- More days here -->
+          </div>
         </div>
+      </div>
+      <div class="package-order">
+        <div class="package-order-details">
+          <div>
+            <p class="head-details">Package Name:</p>
+            <p>{{packageData.packageName}}</p>
+          </div>
+          <div>
+            <p class="head-details">Package price:</p>
+            <p>{{packageData.packagePrice}}</p>
+          </div>
+          <div>
+            <p class="head-details">Max People:</p>
+            <p>{{packageData.maxPeople}}</p>
+          </div>
+          <div>
+            <p class="head-details">Min Age:</p>
+            <p>{{packageData.minAge}}</p>
+          </div>
+          <div>
+            <p class="head-details">Available Date:</p>
+            <p>{{packageData.availableDate}}</p>
+          </div>
+          <div>
+            <p class="head-details">Language:</p>
+            <p>{{packageData.packageLanguage}}</p>
+          </div>
+          <div>
+            <p class="head-details">Rating:</p>
+            <p>{{packageData.packageRating}}/5 - ({{packageData.packageReviews}})</p>
+          </div>
+          <div>
+            <p class="head-details">Available Date:</p>
+            <p>{{packageData.availableDate}}</p>
+          </div>
+          <button>Add To WishList</button>
+        </div>
+        <div class="package-order-form">
+          <form class="booking-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <div>
+              <label for="bookingPerson" class="head-details">Person:</label>
+              <input
+                type="text"
+                id="bookingPerson"
+                name="bookingPerson"
+                placeholder="Enter number of person"
+                formControlName="bookingPerson"
+                required
+              />
+            </div>
+            <div style="color: red;" *ngIf="myForm.get('bookingPerson')?.invalid && myForm.get('bookingPerson')?.touched">
+              <small *ngIf="myForm.get('bookingPerson')?.errors?.['required']">Number of people is required.</small>
+              <small *ngIf="myForm.get('bookingPerson')?.errors?.['maxPeopleExceeded']">Number of people exceeds maximum allowed.</small>
+              <small *ngIf="myForm.get('bookingPerson')?.errors?.['min']">At least one person is required.</small>
+            </div>
+            <div>
+              <label for="bookingRooms" class="head-details">Rooms:</label>
+              <input
+                type="text"
+                id="bookingRooms"
+                name="bookingRooms"
+                placeholder="Enter number of Rooms"
+                formControlName="bookingRooms"
+                required
+              />
+            </div>
+            <div style="color: red;" *ngIf="myForm.get('bookingRooms')?.invalid && myForm.get('bookingRooms')?.touched">
+              <small *ngIf="myForm.get('bookingRooms')?.errors?.['required']">Number of rooms is required.</small>
+              <small *ngIf="myForm.get('bookingRooms')?.errors?.['min']">At least one room is required.</small>
+            </div>
+            <button type="submit" [disabled]="myForm.invalid">Submit Booking</button>
+            <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div> 
+          </form>
+        </div>
+      </div>
     </div>
-
-
-</section>
+  </section>
+  
