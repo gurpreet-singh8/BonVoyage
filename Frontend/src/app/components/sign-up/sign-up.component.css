@@ -10,15 +10,20 @@
   }
   
   .signup-container {
-    width: 400px;
-    padding: 40px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+   /* align-items: self-end; */
+    width: 350px;
+    padding: 5px;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    background-color: rgba(243, 236, 236, 0.8); /* Semi-transparent white background */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-left: auto;
+    margin-right: 10rem;
   }
   
-  .signup-container h1 {
-    text-align: center;
+  .signup-container h5 {
+    text-align:center;
     margin-bottom: 20px;
   }
   
@@ -37,8 +42,8 @@
   .form-group input[type="password"],
   .form-group textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 5px;
+    border: 1px solid #b9b3b3;
     border-radius: 5px;
   }
   
@@ -60,20 +65,18 @@
     background-color: #0056b3; /* Darker blue on hover */
   }
   
-  p {
+ div {
     text-align: center;
+    
+  }
+  .signup-container .a.active {
+    color: #0056b3; /* Active link color */
+    text-decoration: underline; /* Underline active link */
   }
   
-  .link {
-    text-align: center;
+  .signup-container .a:hover {
+    color: #011e3d; /* Hover link color */
+    text-decoration: underline; /* Underline on hover */
   }
   
-  .link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .link a:hover {
-    text-decoration: underline;
-  }
   

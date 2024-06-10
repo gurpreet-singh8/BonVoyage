@@ -15,17 +15,12 @@ import { FormsModule } from '@angular/forms';
 export class SignUpComponent {
 
   user: any = {
-    id: '',
     name: '',
     email: '',
     phone: '',
     password: '',
     address: '',
-    role: '',
-    wishList: []
   };
-
-
   constructor(private userService: ServiceService, private router: Router) {}
 
   onSubmit() {

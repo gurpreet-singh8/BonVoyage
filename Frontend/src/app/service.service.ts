@@ -10,10 +10,10 @@ export class ServiceService {
   constructor(private http:HttpClient) { }
 
   register(user:any):Observable<any>{
-    return this.http.post('localhost:8094/api/users/register',user);
+    return this.http.post('http://localhost:8094/api/users/register',user);
   }
 login(email:String,password:String):Observable<any>{
-  return this.http.post<any>('localhost:8094/api/users/login',{email,password})
+  return this.http.post<any>('http://localhost:8094/api/users/login',{email,password})
 }
 
 }
