@@ -94,7 +94,7 @@
               <small *ngIf="myForm.get('bookingRooms')?.errors?.['min']">At least one room is required.</small>
             </div>
             <button type="submit" [disabled]="myForm.invalid">Submit Booking</button>
-            <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div> 
+            <div *ngIf="errorMessage" style="color: red; text-align: center; width: 100%;">{{ errorMessage }}</div> 
           </form>
         </div>
       </div>
