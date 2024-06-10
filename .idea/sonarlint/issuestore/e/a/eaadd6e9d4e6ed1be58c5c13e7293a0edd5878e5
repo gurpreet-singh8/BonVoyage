@@ -1,33 +1,0 @@
-
-C
-java:S1068"-Remove this unused "packageID" private field.(èöĞ­
-M
-java:S1068"2Remove this unused "packageCountry" private field.(‘èÄıÿÿÿÿ
-J
-java:S1068"/Remove this unused "packageCity" private field.(€æøÌùÿÿÿÿ
-J
-java:S1068"/Remove this unused "packageName" private field.(¯­£úÿÿÿÿ
-J
-java:S1068"/Remove this unused "packageDesc" private field.(ª›¤ùÿÿÿÿ
-G
-java:S1068"1Remove this unused "packageRating" private field.(ãÚâË
-M
-java:S1068"2Remove this unused "packageReviews" private field.(ùäçûÿÿÿÿ
-K
-java:S1068"0Remove this unused "packagePrice" private field.(ÆÀ–ãùÿÿÿÿ
-N
-java:S1068"3Remove this unused "packageDuration" private field.(œ«•¤úÿÿÿÿ
-@
-java:S1068"*Remove this unused "minAge" private field.(øšúç
-C
-java:S1068"-Remove this unused "maxPeople" private field.(®ï¼®
-G
-java:S1068"1Remove this unused "packagePickup" private field.(™®Õ¨
-L
-java:S1068"1Remove this unused "availableDate" private field.(ıÛåõúÿÿÿÿ
-I
-java:S1068"3Remove this unused "packageLanguage" private field.(ñÁ ‘
-L
-java:S1068"6Remove this unused "packageItenaryList" private field.(˜öïù
-F
-java:S1068"0Remove this unused "packageImage" private field.(ƒ‹ê—

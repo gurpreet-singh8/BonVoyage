@@ -8,8 +8,7 @@ import lombok.Setter;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+
 
 import java.util.List;
 
@@ -19,7 +18,6 @@ import java.util.List;
 @Setter
 
 public class PackageDto {
-    @NotBlank
     private String packageID;
 
     @NotBlank
@@ -62,8 +60,7 @@ public class PackageDto {
     @NotBlank
     private String packageLanguage;
 
-    @NotNull
-    @Size(min = 1)
+
     private List<PackageItenaryDto> packageItenary;
 
     @NotBlank
