@@ -62,9 +62,12 @@
     color: white;
     transition: background-color 0.2s ease, width 0.2s ease, padding 0.2s ease, box-shadow 0.2s ease;
 }
+a{
+    text-decoration: none;
+}
 
 .btn-details:hover {
-    background-color: #334559;
+    background-color: rgb(225, 225, 31);
     padding: 11px 21px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -81,7 +84,7 @@
     left: 0;
     width: 0;
     height: 3px; 
-    background-color: rgb(53, 44, 92); 
+    background-color: rgb(225, 225, 31);
     transition: width 0.5s ease;
 }
 .pack-price {
