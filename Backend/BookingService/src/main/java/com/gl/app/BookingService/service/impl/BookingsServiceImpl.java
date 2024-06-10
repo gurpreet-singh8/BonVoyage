@@ -59,7 +59,7 @@ public class BookingsServiceImpl implements BookingsService {
     }
 
     @Override
-    public List<BookingsDto> getAllBookings(String userId){
+    public List<BookingsDto> getAllBookings(){
         List<Bookings> bookings =bookingsRepository.findAll().stream().toList();
 
         List<BookingsDto> bookingsDtos= bookings.stream().map(this::maptoDto).toList();
