@@ -19,6 +19,7 @@ public class PackageItenaryController {
         this.packageItenaryService = packageItenaryService;
     }
 
+    @CrossOrigin("*")
     @PostMapping("/create/{packageId}")
     public ResponseEntity<PackageItenaryDto> createPackageItenary(@Valid @RequestBody PackageItenaryDto packageItenaryDto, @PathVariable String packageId){
         PackageItenaryDto packageItenaryDto1 = packageItenaryService.createPackageItenary(packageItenaryDto,packageId);
