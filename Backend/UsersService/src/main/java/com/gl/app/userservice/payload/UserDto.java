@@ -1,8 +1,6 @@
 package com.gl.app.userservice.payload;
 
-import com.gl.app.userservice.entity.Wishlist;
-import com.gl.app.userservice.utils.UserUtils;
-import jakarta.persistence.*;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
