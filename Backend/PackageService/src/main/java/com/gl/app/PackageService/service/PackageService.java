@@ -4,7 +4,6 @@ import com.gl.app.PackageService.payload.PackageDto;
 import com.gl.app.PackageService.payload.PackageResponse;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public interface PackageService {

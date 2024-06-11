@@ -1,6 +1,6 @@
 package com.gl.app.userservice.service;
 
-import com.gl.app.userservice.entity.User;
+
 import com.gl.app.userservice.payload.UserDto;
 
 public interface UserService {

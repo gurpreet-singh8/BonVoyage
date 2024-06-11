@@ -8,12 +8,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/users")
 @AllArgsConstructor
 public class UserController {
     private final UserService userService;
+
 
     @PostMapping("/register")
     ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
