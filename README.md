@@ -1,3 +1,4 @@
+
 Purpose: Develop a Spring Microservice application with backend functionalities exposed as Spring REST endpoints. Implement service intercommunication using OpenFeign, centralized configuration, service registry, load balancing, and gateway features. Develop the frontend using Angular/React libraries.
 
 Problem Statement: BonVoyage Application - A travel portal for discovering and planning travel experiences.

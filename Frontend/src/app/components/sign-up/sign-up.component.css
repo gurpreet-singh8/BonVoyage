@@ -69,6 +69,8 @@ button {
   }
   .button-container {
     display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
     justify-content: center;
 
   }

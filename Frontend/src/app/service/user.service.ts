@@ -20,4 +20,7 @@ getWishlist(userId:string,wishlistId:String): Observable<any> {
   // localhost:8094/api/users/U101/W101
 
 }
+removeWishlistItem(packageId: string,wishlistId:string): Observable<any> {
+  return this.http.delete(`${this.url}/${wishlistId}/${packageId}`);
+}
 }

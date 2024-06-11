@@ -10,7 +10,12 @@ export class BookingService {
   public createBookings(payload: any):any{
     return this.http.post(`${this.url}`,payload);
   }
-  public getAllPackages(userId:any):any{
+  public getAllBooking():any{
+    return this.http.get(`${this.url}`);
+  }
+  public getBookingById(userId:any):any{
+    console.log(`${this.url}/${userId}`);
+    
     return this.http.get(`${this.url}/${userId}`);
   }
   public updateBookings(payload:any):any{
