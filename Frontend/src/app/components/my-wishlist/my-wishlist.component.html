@@ -1,1 +1,32 @@
-<p>my-wishlist works!</p>
+
+
+<div class="wishlist-container">
+    <h5>Your Wishlist</h5>
+    <div *ngIf="wishlist.length === 0">
+      <p>Your wishlist is empty.</p>
+    </div>
+    <div *ngIf="wishlist.length > 0">
+      <div *ngFor="let item of wishlist" class="package-item">
+        <h3>{{ item.packageName }}</h3>
+        <img [src]="item.packageImage" alt="{{ item.packageName }}" class="package-image">
+        <p><strong>packageID:</strong>{{item.packageID}}</p>
+        <p><strong>Country:</strong> {{ item.packageCountry }}</p>
+        <p><strong>City:</strong> {{ item.packageCity }}</p>
+        <p><strong>packageName:</strong> {{ item.packageName }}</p>
+        <p><strong>Description:</strong> {{ item.packageDesc }}</p>
+        <p><strong>Rating:</strong> {{ item.packageRating }}</p>
+        <p><strong>Reviews:</strong> {{ item.packageReviews }}</p>
+        <p><strong>Price:</strong> {{ item.packagePrice }}</p>
+        <p><strong>Duration:</strong> {{ item.packageDuration }}</p>
+        <p><strong>Min Age:</strong> {{ item.minAge }}</p>
+        <p><strong>Max People:</strong> {{ item.maxPeople }}</p>
+        <p><strong>Pickup:</strong> {{ item.packagePickup }}</p>
+        <p><strong>Available Dates:</strong> {{ item.availableDate }}</p>
+        <p><strong>Languages:</strong> {{ item.packageLanguage }}</p>
+        <p><strong>ItenaryList:</strong>{{item.packageItenaryList}}</p>
+        <p><strong>packageImage:</strong>{{item.packageImage}}</p>
+        
+      </div>
+    </div>
+  </div>
+  
