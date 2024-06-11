@@ -22,7 +22,7 @@ export const routes: Routes = [
         redirectTo:""
     },
     {
-        path:"all-packages",
+        path:"packages",
         component:AllPackageComponent
     },
     {

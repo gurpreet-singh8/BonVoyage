@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ServiceService } from '../../service.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +18,7 @@ export class SignInComponent {
     
   };
 
-  constructor(private userService: ServiceService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
   onSubmit() {
 
     this.userService.register(this.user).subscribe((data)=>{

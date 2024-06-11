@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServiceService } from '../../service.service';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../../service/user.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class SignUpComponent {
     password: '',
     address: '',
   };
-  constructor(private userService: ServiceService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
 

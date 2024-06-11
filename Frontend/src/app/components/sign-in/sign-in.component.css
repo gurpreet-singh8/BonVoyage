@@ -1,6 +1,8 @@
 .signin-background {
-    background-image: url('C:/Users/lakavath.sonia/GIT/BonVoyage1/Frontend/src/app/Assests/background img.jpg'); 
+    background-image: url('../../Assests/background\ img.jpg'); 
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh; /* Adjust the height as needed */
     display: flex;
     justify-content: center;
