@@ -51,3 +51,15 @@ i
 9Frontend/src/app/components/sign-up/sign-up.component.css,7\2\72135dcbfcb1c5dfb7a13c743eead31ef94ac51b
 m
 =Frontend/src/app/components/sign-up/sign-up.component.spec.ts,e\2\e28405e7638c3ad7045c74b7093cd91d75b499a5
+ç
+]Backend/PackageService/src/main/java/com/gl/app/PackageService/PackageServiceApplication.java,1\7\17922e53bb2af4f0aacd4c2c68d81c20464a6412
+ê
+`Backend/PackageService/src/main/java/com/gl/app/PackageService/controller/PackageController.java,7\7\77e0469d6ca25e22ef112e9b80d81ffea1cc1f54
+ó
+gBackend/PackageService/src/main/java/com/gl/app/PackageService/controller/PackageItenaryController.java,4\8\48ec5340075aa9147799f27dfa68dda0591e63c5
+Ç
+RBackend/PackageService/src/main/java/com/gl/app/PackageService/entity/Package.java,c\f\cfdce8682cd7e6ad0ff8651a91f556691cf34c22
+â
+YBackend/PackageService/src/main/java/com/gl/app/PackageService/entity/PackageItenary.java,8\d\8d58f4fbb33ddcb3bfe8e45f322c8c288a9a300c
+Ü
+VBackend/PackageService/src/main/java/com/gl/app/PackageService/payload/PackageDto.java,f\f\ff55013d0fbefe0f4a20ce5d1c999c5e82fffce1

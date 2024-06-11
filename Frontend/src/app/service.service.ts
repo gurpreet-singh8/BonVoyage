@@ -13,7 +13,7 @@ export class ServiceService {
     return this.http.post('http://localhost:8094/api/users/register',user);
   }
 login(email:String,password:String):Observable<any>{
-  return this.http.post<any>('http://localhost:8094/api/users/login',{email,password})
+  return this.http.post('http://localhost:8094/api/users/login',{email,password})
 }
 
 }
