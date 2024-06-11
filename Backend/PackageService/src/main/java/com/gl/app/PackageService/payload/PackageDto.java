@@ -1,6 +1,5 @@
 package com.gl.app.PackageService.payload;
 
-import com.gl.app.PackageService.entity.PackageItenary;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

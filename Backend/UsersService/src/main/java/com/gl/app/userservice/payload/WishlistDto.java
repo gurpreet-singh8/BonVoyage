@@ -1,7 +1,7 @@
 package com.gl.app.userservice.payload;
 
 
-import com.gl.app.userservice.entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
