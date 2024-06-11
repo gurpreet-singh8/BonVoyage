@@ -1,1 +1,82 @@
-<p>my-bookings works!</p>
+@if(!Edit){
+<div class="bookind-container">
+    
+    @if(bookingList.length>0){
+        @for(booking of bookingList; track $index){
+            <div class="booking-card">
+                <div class="img">
+                    <img src={{booking.packageImage}} alt="" onerror="this.onerror=null; this.src='https://st2.depositphotos.com/3837271/5507/i/450/depositphotos_55072853-stock-photo-time-to-travel-wooden-sign.jpg';">
+                </div>
+                <p class="name">{{booking.packageName}}</p>
+                <div class="details">
+                    <div>
+                        <p>Start Date</p>
+                        <p>{{booking.bookingDate}}</p>
+                    </div>
+                    <div>
+                        <p>Total Rooms Booked:</p>
+                        <p>{{booking.bookingRooms}} Rooms</p>
+                    </div>
+                    <div>
+                        <p>Total Number of Guests:</p>
+                        <p>{{booking.bookingPerson}} Adults</p>
+                    </div>
+                    <div>
+                        <p>Your Booking ID:</p>
+                        <p>{{booking.bookingId}}</p>
+                    </div>
+                    <div class="btn-booking">
+        
+                        <button (click)="showEdit(booking.bookingId)">Edit</button>
+                        <button (click)="delete(booking.bookingId)">Delete</button>
+                    </div>
+                </div>
+            </div>
+            
+        }
+    }
+    @else {
+        <h1>No Booking Found!!</h1>
+    }
+    
+</div>
+}
+@else {
+    <div class="package-order-form">
+        <form class="booking-form" [formGroup]="myForm" (ngSubmit)="editBooking()">
+          <div>
+            <label for="bookingPerson" class="head-details">Person:</label>
+            <input
+              type="text"
+              id="bookingPerson"
+              name="bookingPerson"
+              placeholder="Enter number of person"
+              formControlName="bookingPerson"
+              required
+            />
+          </div>
+          <div style="color: red;" *ngIf="myForm.get('bookingPerson')?.invalid && myForm.get('bookingPerson')?.touched">
+            <small *ngIf="myForm.get('bookingPerson')?.errors?.['required']">Number of people is required.</small>
+            <small *ngIf="myForm.get('bookingPerson')?.errors?.['maxPeopleExceeded']">Number of people exceeds maximum allowed.</small>
+            <small *ngIf="myForm.get('bookingPerson')?.errors?.['min']">At least one person is required.</small>
+          </div>
+          <div>
+            <label for="bookingRooms" class="head-details">Rooms:</label>
+            <input
+              type="text"
+              id="bookingRooms"
+              name="bookingRooms"
+              placeholder="Enter number of Rooms"
+              formControlName="bookingRooms"
+              required
+            />
+          </div>
+          <div style="color: red;" *ngIf="myForm.get('bookingRooms')?.invalid && myForm.get('bookingRooms')?.touched">
+            <small *ngIf="myForm.get('bookingRooms')?.errors?.['required']">Number of rooms is required.</small>
+            <small *ngIf="myForm.get('bookingRooms')?.errors?.['min']">At least one room is required.</small>
+          </div>
+          <button type="submit" [disabled]="myForm.invalid">Submit Booking</button>
+          <div *ngIf="errorMessage" style="color: red; text-align: center; width: 100%;">{{ errorMessage }}</div> 
+        </form>
+      </div>
+}

@@ -45,10 +45,10 @@ public class BookingsServiceImpl implements BookingsService {
 
     @Override
     public BookingsDto updateBookings(BookingsDto bookingsDto) {
-            Bookings bookings=bookingsRepository.findByUserId(bookingsDto.getUserId());
-            Bookings bookings1=bookingsRepository.findById(bookings.getBookingId()).orElseThrow(
-                    ()-> new ResourceNotFoundException("Bookings","userId",bookings.getUserId())
+            Bookings bookings1=bookingsRepository.findById(bookingsDto.getBookingId()).orElseThrow(
+                    ()-> new ResourceNotFoundException("Bookings","bookingId",bookingsDto.getBookingId())
             );
+
             bookings1.setUserId(bookingsDto.getUserId());
             bookings1.setPackageId(bookingsDto.getPackageId());
             bookings1.setBookingDate(bookingsDto.getBookingDate());
@@ -66,16 +66,7 @@ public class BookingsServiceImpl implements BookingsService {
 
         return bookingsDtos;
     }
-//    @Override
-//    public BookingsDto getBookings(String userId) {
-//
-//       Bookings bookings = bookingsRepository.findByUserId(userId);
-//       Bookings bookings1 = bookingsRepository.findById(bookings.getBookingId()).orElseThrow(
-//               ()-> new ResourceNotFoundException("Bookings","userId",userId)
-//       );
-//       return maptoDto(bookings1);
-//
-//    }
+
 
     @Override
     public String deleteBookings(String bookingId) {
@@ -84,5 +75,13 @@ public class BookingsServiceImpl implements BookingsService {
         );
         bookingsRepository.deleteById(bookingId);
         return "Deleted";
+    }
+    @Override
+    public List<BookingsDto> getAllBookingsBy(String userId) {
+        List<Bookings> bookings =bookingsRepository.findByUserId(userId).stream().toList();
+
+        List<BookingsDto> bookingsDtos= bookings.stream().map(this::maptoDto).toList();
+
+        return bookingsDtos;
     }
 }
