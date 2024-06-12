@@ -18,7 +18,7 @@ public class BookingServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookingServiceApplication.class, args);
 	}
-	private static final AtomicInteger counter = new AtomicInteger(100); 
+	private static final AtomicInteger counter = new AtomicInteger(101); 
 
     public static String generateId(String prefix) {
         int currentValue = counter.incrementAndGet();

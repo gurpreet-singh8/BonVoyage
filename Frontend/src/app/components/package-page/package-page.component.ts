@@ -31,6 +31,8 @@ export class PackagePageComponent implements OnInit {
     this.packageID = param != null ? param : '';
     this.packageService.getPackageById(this.packageID).subscribe((data: any) => {
       this.packageData = data;
+      console.log(data);
+      
     });
     this.myForm = new FormGroup({
       bookingRooms: new FormControl(null, [Validators.required, Validators.min(1)]),

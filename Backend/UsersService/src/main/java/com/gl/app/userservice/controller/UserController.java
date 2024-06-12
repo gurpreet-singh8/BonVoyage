@@ -15,17 +15,19 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin("*")
     @PostMapping("/register")
     ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
         return new ResponseEntity<>(userService.registerUser(userDto), HttpStatus.CREATED);
     }
 
+    @CrossOrigin("*")
     @PostMapping("/login")
     ResponseEntity<UserDto> loginUser(@Valid @RequestBody UserLoginDto userLoginDto){
         return ResponseEntity.ok(userService.loginUser(userLoginDto.getEmail(),userLoginDto.getPassword()));
     }
 
+    @CrossOrigin("*")
     @GetMapping("/{name}")
     ResponseEntity<UserDto> getUserByName(@PathVariable(name = "name") String name){
         return ResponseEntity.ok(userService.getUserByName(name));

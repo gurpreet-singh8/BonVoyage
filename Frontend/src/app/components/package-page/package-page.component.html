@@ -16,11 +16,13 @@
           <h3 style="margin: 0;">Highlights</h3>
           <p>-{{packageData.packageDuration}}</p>
           <div class="days-container">
-            <div class="day1 day">
-              <p class="dayNo">DAY 1</p>
-              <p class="dayTask">REST DAY</p>
-            </div>
-            <!-- More days here -->
+            @for(it of packageData.packageItenary; track $index){
+              <div class="day1 day">
+                <p class="dayNo">{{it.day}}</p>
+                <p class="dayTask">{{it.activities}}</p>
+              </div>
+            }
+            
           </div>
         </div>
       </div>
