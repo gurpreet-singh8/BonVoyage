@@ -60,7 +60,14 @@
             <p class="head-details">Available Date:</p>
             <p>{{packageData.availableDate}}</p>
           </div>
-          <button>Add To WishList</button>
+        
+          @if(packageData.present){
+            <button (click)="addToWishlist(packageData.packageID)" disabled>Add To WishList</button>
+
+          }
+          @else {
+            <button (click)="addToWishlist(packageData.packageID)">Add To WishList</button>
+          }
         </div>
         <div class="package-order-form">
           <form class="booking-form" [formGroup]="myForm" (ngSubmit)="onSubmit()">

@@ -1,1 +1,24 @@
-<p>my-wishlist works!</p>
+<p class="p"><strong> FOVOURITE PLACES</strong></p>
+<div class="wishlist-container">
+  <div *ngIf="wishlist.length">
+  <div class="wishlist-item" *ngFor="let item of wishlist">
+  
+    <img class="wishlist-image" [src]="item.packageImage" alt="Package Image">
+    <div class="wishlist-content">
+      <h3>{{ item.packageName }}</h3>
+      <p><strong>Country:</strong> {{ item.packageCountry }}</p>
+      <p><strong>City:</strong> {{ item.packageCity }}</p>
+      <p><strong>Description:</strong> {{ item.packageDesc }}</p>
+      <p><strong>Rating:</strong> {{ item.packageRating }}</p>
+      <p><strong>Reviews:</strong> {{ item.packageReviews }}</p>
+      <p><strong>Price:</strong> {{ item.packagePrice }}</p>
+      <p><strong>Duration:</strong> {{ item.packageDuration }}</p>
+      <p><strong>Pickup:</strong> {{ item.packagePickup }}</p>
+      <p><strong>Available Dates:</strong> {{ item.availableDate }}</p>
+    </div>
+    <button class="delete-button" (click)="removeFromWishlist(item.packageID)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+</div>

@@ -1,6 +1,7 @@
 package com.gl.app.userservice.controller;
 
 import com.gl.app.userservice.payload.ResponseDto;
+import com.gl.app.userservice.payload.SuccessDto;
 import com.gl.app.userservice.payload.WishlistDto;
 import com.gl.app.userservice.service.WishlistService;
 import lombok.AllArgsConstructor;
@@ -21,13 +22,13 @@ public class WishlistController {
     }
     @CrossOrigin("*")
     @PostMapping("/{wishlistId}/{packageId}")
-    ResponseEntity<String> addPackageToWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
-        return ResponseEntity.ok(wishlistService.addPackageToWishlist(userId,wishlistId,packageId));
+    ResponseEntity<SuccessDto> addPackageToWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
+        return ResponseEntity.ok(new SuccessDto(wishlistService.addPackageToWishlist(userId,wishlistId,packageId)));
     }
     @CrossOrigin("*")
     @DeleteMapping("/{wishlistId}/{packageId}")
-    ResponseEntity<String> deletePackageWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
-        return ResponseEntity.ok(wishlistService.deletePackageWishlist(userId,wishlistId,packageId));
+    ResponseEntity<SuccessDto> deletePackageWishlist(@PathVariable(name = "userId") String userId, @PathVariable(name = "wishlistId") String wishlistId, @PathVariable(name = "packageId") String packageId){
+        return ResponseEntity.ok(new SuccessDto(wishlistService.deletePackageWishlist(userId,wishlistId,packageId)));
     }
 
     @CrossOrigin("*")

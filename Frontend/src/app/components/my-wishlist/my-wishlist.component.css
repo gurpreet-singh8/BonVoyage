@@ -1,0 +1,70 @@
+
+.p{
+    text-align: center;
+     font-size: large;
+     font-style:normal;
+    color: blue;
+     align-items: center; 
+    font-family: 'Courier New', Courier, monospace;
+   
+   }
+   .wishlist-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+     gap: 20px;
+     padding: 20px;
+   }
+   
+   .wishlist-item {
+     display: flex;
+     flex-direction: column;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     overflow: hidden;
+     background-color: #1d184c;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     position: relative;
+   }
+   
+   .wishlist-image {
+     width: 100%;
+     height: auto;
+   }
+   
+   .wishlist-content {
+     padding: 15px;
+   }
+   
+   .wishlist-content h3 {
+     margin: 0 0 10px;
+     font-size: 18px;
+     color: white;
+   }
+   
+   .wishlist-content p {
+     margin: 5px 0;
+     font-size: 14px;
+     color: white;
+   }
+   
+   .delete-button {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     background-color: transparent;
+     border: none;
+     cursor: pointer;
+     font-size: 18px;
+     color: #1d184c;
+   }
+   
+   .delete-button i {
+     pointer-events: none; /* Ensure click goes through to button */
+   }
+   
+   /* Responsive adjustments */
+   @media (max-width: 768px) {
+     .wishlist-container {
+       grid-template-columns: 1fr; /* Single column on smaller screens */
+     }
+   }

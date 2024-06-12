@@ -3,6 +3,7 @@ package com.gl.app.userservice.service.impl;
 import com.gl.app.userservice.entity.User;
 import com.gl.app.userservice.exception.ResourceNotFoundException;
 import com.gl.app.userservice.payload.UserDto;
+import com.gl.app.userservice.payload.WishlistDto;
 import com.gl.app.userservice.repository.UserRepository;
 import com.gl.app.userservice.service.UserService;
 import com.gl.app.userservice.utils.Mapper;
@@ -14,12 +15,15 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final WishlistServiceImpl wishlistServiceImpl;
     private final Mapper mapper;
 
     @Override
     public UserDto registerUser(UserDto userDto) {
         User user= mapper.mapToUserEntity(userDto);
         user= userRepository.save(user);
+        System.out.println(user.getId());
+        wishlistServiceImpl.createWishlist(user.getId(),new WishlistDto());
         return mapper.mapToUserDto(user);
     }
 

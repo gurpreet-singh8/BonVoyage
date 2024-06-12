@@ -4,6 +4,7 @@ import { PackageService } from '../../service/package.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookingService } from '../../service/booking.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-package-page',
@@ -13,8 +14,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./package-page.component.css']
 })
 export class PackagePageComponent implements OnInit {
+
   packageID: string | undefined;
   userID: string | null = localStorage.getItem('userID');
+  wishID: string | null = localStorage.getItem('wishlistID');
   packageData: any;
   myForm: FormGroup = new FormGroup({});
   errorMessage: string = ''; 
@@ -23,16 +26,38 @@ export class PackagePageComponent implements OnInit {
     private route: ActivatedRoute,
     private packageService: PackageService,
     private bookingService: BookingService,
+    private wishlistService: UserService,
     private router: Router
   ) {}
+  checkWishlist(): void {
+    if (this.userID && this.wishID) {
+      this.wishlistService.getWishlist(this.userID, this.wishID).subscribe(
+        (wishlistData) => {
+          console.log(wishlistData.data);
+          const wishlistPackages = wishlistData.data;
 
+          // Check if packageID is in the wishlist
+          const isPresent = wishlistPackages.some((packageItem: any) => packageItem.packageID === this.packageID);
+          this.packageData.present = isPresent;
+
+          console.log('Updated packageData:', this.packageData);
+        },
+        (error) => {
+          console.error('Error fetching wishlist', error);
+        }
+      );
+    } else {
+      console.error('User ID or Wishlist ID is null');
+    }
+  }
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('packageID');
     this.packageID = param != null ? param : '';
     this.packageService.getPackageById(this.packageID).subscribe((data: any) => {
       this.packageData = data;
       console.log(data);
-      
+      this.checkWishlist();
+
     });
     this.myForm = new FormGroup({
       bookingRooms: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -44,6 +69,7 @@ export class PackagePageComponent implements OnInit {
     });
   }
 
+  
   maxPeopleValidator(control: FormControl): { [key: string]: boolean } | null {
     if (this.packageData && control.value > this.packageData.maxPeople) {
       return { maxPeopleExceeded: true };
@@ -76,5 +102,13 @@ export class PackagePageComponent implements OnInit {
         this.errorMessage = 'An error occurred while booking.\nPlease Enter Correct data !!!'; 
       }
     );
+  }
+  addToWishlist(packageID: any) {
+    this.wishlistService.addPackageToWishlist(this.userID,this.wishID,packageID).subscribe((res)=>{
+      console.log(res);
+      this.checkWishlist();
+
+      
+  })
   }
 }
