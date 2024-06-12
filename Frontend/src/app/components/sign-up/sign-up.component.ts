@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 
@@ -8,7 +8,7 @@ import { UserService } from '../../service/user.service';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterLink],
+  imports: [CommonModule,FormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
