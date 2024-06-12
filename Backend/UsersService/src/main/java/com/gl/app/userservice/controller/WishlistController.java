@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("api/users/{userId}")
 @AllArgsConstructor
 public class WishlistController {
@@ -30,7 +29,7 @@ public class WishlistController {
         return ResponseEntity.ok(wishlistService.deletePackageWishlist(userId,wishlistId,packageId));
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @GetMapping("/{wishlistId}")
     public ResponseEntity<ResponseDto> getWishlist(@PathVariable String userId,@PathVariable String wishlistId){
         return ResponseEntity.ok(wishlistService.getWishlist(userId,wishlistId));
