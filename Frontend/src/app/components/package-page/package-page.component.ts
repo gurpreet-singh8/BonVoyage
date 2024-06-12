@@ -1,50 +1,78 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PackageService } from '../../service/package.service';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookingService } from '../../service/booking.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-package-page',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './package-page.component.html',
-  styleUrl: './package-page.component.css'
+  styleUrls: ['./package-page.component.css']
 })
-export class PackagePageComponent {
+export class PackagePageComponent implements OnInit {
   packageID: string | undefined;
-  userID: string|null= null;
-  packageData:any;
+  userID: string | null = localStorage.getItem('userID');
+  packageData: any;
   myForm: FormGroup = new FormGroup({});
-  constructor(private route: ActivatedRoute,
-    private packageService:PackageService,
-    private bookingService: BookingService) { }
+  errorMessage: string = ''; 
+
+  constructor(
+    private route: ActivatedRoute,
+    private packageService: PackageService,
+    private bookingService: BookingService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('packageID');
-    this.packageID = param!=null?param:"";
-    this.packageService.getPackageById(this.packageID).subscribe((data: any)=>{
+    this.packageID = param != null ? param : '';
+    this.packageService.getPackageById(this.packageID).subscribe((data: any) => {
       this.packageData = data;
     });
     this.myForm = new FormGroup({
-      "bookingRooms":new FormControl(null),
-      "bookingPerson":new FormControl(null),
-      
+      bookingRooms: new FormControl(null, [Validators.required, Validators.min(1)]),
+      bookingPerson: new FormControl(null, [
+        Validators.required,
+        Validators.min(1),
+        this.maxPeopleValidator.bind(this)
+      ])
     });
   }
-  onSubmit(){
-    const payload= {
-      "bookingRooms": this.myForm.value.bookingRooms,
-      "bookingPerson": this.myForm.value.bookingPerson,
-      "userId":this.userID,
-      "packageId":this.packageID,
-      "bookingDate":"2024-06-09",
-      "packageImage": "https://example.com/images/package.jpg",
+
+  maxPeopleValidator(control: FormControl): { [key: string]: boolean } | null {
+    if (this.packageData && control.value > this.packageData.maxPeople) {
+      return { maxPeopleExceeded: true };
     }
-    this.bookingService.createBookings(payload).subscribe((res:any)=>{
-      console.log(res);
-      
-    })
-    
+    return null;
+  }
+
+  onSubmit() {
+    if (this.myForm.invalid) {
+      return;
+    }
+    const payload = {
+      bookingRooms: this.myForm.value.bookingRooms,
+      bookingPerson: this.myForm.value.bookingPerson,
+      userId: this.userID,
+      packageId: this.packageID,
+      bookingDate: new Date().toISOString().split('T')[0],
+      packageImage: this.packageData.packageImage,
+      packageName: this.packageData.packageName
+    };
+    console.log(payload);
+
+    this.bookingService.createBookings(payload).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.router.navigate(['/checkout']);
+      },
+      (err: any) => {
+        console.error(err);
+        this.errorMessage = 'An error occurred while booking.\nPlease Enter Correct data !!!'; 
+      }
+    );
   }
 }

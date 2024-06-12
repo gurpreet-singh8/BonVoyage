@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 
 @RestController
 @RequestMapping("")
@@ -18,10 +18,8 @@ public class PackageController {
 
     private final PackageService packageService;
 
-    private final PackageResponse packageResponse;
-    public PackageController(PackageService packageService, PackageResponse packageResponse) {
+    public PackageController(PackageService packageService) {
         this.packageService = packageService;
-        this.packageResponse = packageResponse;
     }
 
     @CrossOrigin("*")

@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, provideRouter } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AllPackageComponent } from './components/all-package/all-package.component';
 import { PackagePageComponent } from './components/package-page/package-page.component';
@@ -63,3 +63,4 @@ export const routes: Routes = [
 
     }
 ];
+export const appRoutes = provideRouter(routes);
