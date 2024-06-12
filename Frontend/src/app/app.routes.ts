@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AllPackageComponent } from './components/all-package/all-package.component';
 import { PackagePageComponent } from './components/package-page/package-page.component';
@@ -10,6 +10,7 @@ import { MyWishlistComponent } from './components/my-wishlist/my-wishlist.compon
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {
@@ -21,7 +22,7 @@ export const routes: Routes = [
         redirectTo:""
     },
     {
-        path:"all-packages",
+        path:"packages",
         component:AllPackageComponent
     },
     {
