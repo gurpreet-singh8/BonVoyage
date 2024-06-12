@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @CrossOrigin(origins = "*")
+
     @PostMapping("/register")
     ResponseEntity<UserDto> registerUser(@Valid @RequestBody UserDto userDto){
         return new ResponseEntity<>(userService.registerUser(userDto), HttpStatus.CREATED);

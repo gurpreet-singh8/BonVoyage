@@ -18,10 +18,8 @@ public class PackageController {
 
     private final PackageService packageService;
 
-    private final PackageResponse packageResponse;
-    public PackageController(PackageService packageService, PackageResponse packageResponse) {
+    public PackageController(PackageService packageService) {
         this.packageService = packageService;
-        this.packageResponse = packageResponse;
     }
 
     @CrossOrigin("*")
