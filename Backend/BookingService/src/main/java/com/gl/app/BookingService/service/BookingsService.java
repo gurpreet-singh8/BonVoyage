@@ -10,8 +10,6 @@ public interface BookingsService {
     public BookingsDto updateBookings(BookingsDto bookingsDto);
 
 //    public BookingsDto getBookings(String bookingId);
-
-    public List<BookingsDto> getAllBookingsBy(String userId);
     public List<BookingsDto> getAllBookings();
 
     public String deleteBookings(String bookingId);

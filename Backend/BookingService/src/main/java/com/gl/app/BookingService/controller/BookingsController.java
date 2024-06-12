@@ -2,7 +2,6 @@ package com.gl.app.BookingService.controller;
 
 
 import com.gl.app.BookingService.payload.BookingsDto;
-import com.gl.app.BookingService.payload.ResponseDto;
 import com.gl.app.BookingService.service.BookingsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,13 +26,6 @@ public class BookingsController {
         return bookingsDto;
     }
     @CrossOrigin("*")
-
-    @GetMapping("/{userId}")
-    public List<BookingsDto> getAllBookingsById(@PathVariable(name = "userId") String userId){
-        List<BookingsDto> bookingsDto = bookingsService.getAllBookingsBy(userId);
-        return bookingsDto;
-    }
-    @CrossOrigin("*")
     @PutMapping
     public ResponseEntity<BookingsDto> updateBookings(@RequestBody BookingsDto bookingsDto){
         BookingsDto bookingsDto1=bookingsService.updateBookings(bookingsDto);
@@ -47,7 +39,7 @@ public class BookingsController {
     }
     @CrossOrigin("*")
     @DeleteMapping("/{bookingId}")
-    public ResponseDto deleteBookings(@PathVariable String bookingId){
-        return new ResponseDto(bookingsService.deleteBookings(bookingId));
+    public String deleteBookings(@PathVariable String bookingId){
+        return bookingsService.deleteBookings(bookingId);
     }
 }

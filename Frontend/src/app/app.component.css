@@ -9,6 +9,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1em;
+    max-width:100%;
+    height:auto
   }
   
   nav a {
@@ -44,4 +46,4 @@ header {
   .social-icons a:hover {
     text-decoration: underline;
   }
-  
+ 

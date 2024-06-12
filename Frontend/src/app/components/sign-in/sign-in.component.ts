@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from '../../service/user.service';
 
 @Component({
@@ -18,16 +20,20 @@ export class SignInComponent {
     
   };
 
-  constructor(private userService: UserService, private router: Router) {}
-  onSubmit() {
+  constructor(private authService: UserService, private router: Router) {}
 
-    this.userService.register(this.user).subscribe((data)=>{
-      console.log('User Logined successfully', data);
-       this.router.navigate(['/']);
-    }, error => {
-      console.error('Error registering user', error);
-    });
+  onSubmit() {
+    this.authService.login(this.user.email, this.user.password).subscribe(
+      data => {
+        console.log('User logged in successfully', data);
+        this.router.navigate(['/']);
+      },
+      error => {
+        console.error('Error logging in user', error);
+      }
+    );
+  }
    
   }
 
-}
+
