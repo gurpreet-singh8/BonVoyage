@@ -1,8 +1,5 @@
-/* home.component.css */
-
-/* Hero Section */
 .hero {
-    background: url('../../assets/img/bg.jpg') no-repeat center center/cover;
+    background: url('../../../../public/img/bgimg.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,7 +11,8 @@
     max-width: 600px;
   }
   .btn-primary {
-    background-color: #00aaff;
+    background-color: #d4d231;
+    border-radius: 5px;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -24,6 +22,12 @@
     font-size: 16px;
     margin: 10px 2px;
     cursor: pointer;
+    transition: 500ms all ease;
+  }
+  .btn-primary:hover{
+    background-color: #134881;
+    padding: 15px 25px;
+    border-radius: 10px;
   }
   .search-bar {
     margin-top: 20px;
@@ -43,7 +47,6 @@
     cursor: pointer;
   }
   
-  /* Steps Section */
   .steps {
     padding: 50px 20px;
     text-align: center;
@@ -64,42 +67,6 @@
     color: #00aaff;
   }
   
-  
-  
- 
-  
- 
-   
-  /* Footer */
-  footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-  }
-  .footer-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .footer-links {
-    display: flex;
-  }
-  .footer-links div {
-    margin: 10px;
-  }
-  .footer-links a {
-    display: block;
-    margin: 5px 0;
-  }
-  .newsletter {
-    margin: 10px;
-  }
-  .newsletter input {
-    padding: 10px;
-    width: 100%;
-  }
   .social-media a {
     margin: 0 10px;
     color: #333;
@@ -115,7 +82,7 @@
   }
   
   .info-section h2 {
-    color: #FFA500; /* Adjust color to match the original design */
+    color: #FFA500; 
     margin-bottom: 10px;
   }
   
@@ -147,7 +114,7 @@
   
   .icon {
     font-size: 40px;
-    color: #007BFF; /* Adjust color to match the original design */
+    color: #007BFF; 
   }
   
 
@@ -180,8 +147,8 @@
   
   .destination-card img {
     width: 100%;
-  height: 200px; /* Set a fixed height for the image */
-  object-fit: cover; /* Cover the fixed height */
+  height: 200px; 
+  object-fit: cover;
   }
   
   .destination-card h3 {
@@ -194,7 +161,6 @@
     color: gray;
   }
   
-   /* Travel Tips and Advice Section */
    .travel-tips {
     text-align: center;
     margin: 20px 0;
@@ -218,6 +184,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
   }
+  
   /* About Us Section */
 .about-us {
   padding: 50px 20px;
@@ -229,89 +196,34 @@
   color: #333;
 }
 .about-content {
+  
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* This makes the layout responsive */
+  flex-wrap: wrap; 
+  gap: 80px;
 }
 .about-text {
   flex: 1;
-  min-width: 300px; /* Ensures the text area is not too small on small screens */
-  margin-left: 300px;
-  text-align: center;
+  min-width: 300px; 
+  max-width:800px;
+  width: 50%;
+  text-align: left;
 }
 .about-image {
   flex: 1;
-  min-width: 100px; /* Ensures the image area is not too small on small screens */
+  width: 100%;
 }
-.about-image img {
-  max-width: 500px;
+img {
   height: 400px;
   border-radius: 8px;
 }
 
-/* Footer */
-footer {
-  background-color: #f9f9f9;
-  padding: 40px 20px;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 20px auto;
-}
-
-.footer-section {
-  flex: 1 1 200px;
-  margin: 10px;
-}
-
-.footer-section h4 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 10px;
-}
-
-.footer-section ul li a {
-  color: #555;
-  text-decoration: none;
-}
-
-.footer-brand h3 {
-  font-size: 24px;
-  color: #333;
-}
-
-.footer-brand p {
-  font-size: 14px;
-  color: #777;
-  margin: 10px 0;
-}
-
-.social-icons a {
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 20px;
-  color: #555;
-}
-
-.newsletter input {
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+@media (max-width:640px) {
+  .about-text{
+    margin: 0;
+  }
+  img{
+    width: 100%;
+  }
 }

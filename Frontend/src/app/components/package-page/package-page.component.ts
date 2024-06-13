@@ -36,7 +36,6 @@ export class PackagePageComponent implements OnInit {
           console.log(wishlistData.data);
           const wishlistPackages = wishlistData.data;
 
-          // Check if packageID is in the wishlist
           const isPresent = wishlistPackages.some((packageItem: any) => packageItem.packageID === this.packageID);
           this.packageData.present = isPresent;
 
@@ -51,6 +50,11 @@ export class PackagePageComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    const user = localStorage.getItem("userID");
+
+    if(!user){
+      this.router.navigate(['/signin']);
+    }
     const param = this.route.snapshot.paramMap.get('packageID');
     this.packageID = param != null ? param : '';
     this.packageService.getPackageById(this.packageID).subscribe((data: any) => {

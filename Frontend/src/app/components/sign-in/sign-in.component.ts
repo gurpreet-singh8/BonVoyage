@@ -21,13 +21,21 @@ export class SignInComponent {
   };
 
   constructor(private authService: UserService, private router: Router) {}
-
+  ngOnInit(): void {
+    const user = localStorage.getItem("userID");
+    
+    if(user){
+      this.router.navigate(['/home']);
+    }
+  }
   onSubmit() {
     this.authService.login(this.user.email, this.user.password).subscribe(
       data => {
         console.log('User logged in successfully', data);
         localStorage.setItem("userID",data.id);
         localStorage.setItem("wishlistID",data.wishlist[0].wishlistId);
+        localStorage.setItem("role",data.role);
+        location.reload();
         this.router.navigate(['/']);
       },
       error => {

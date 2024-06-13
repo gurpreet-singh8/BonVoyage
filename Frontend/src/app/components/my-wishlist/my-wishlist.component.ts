@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-wishlist',
@@ -11,55 +12,19 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './my-wishlist.component.html',
   styleUrl: './my-wishlist.component.css'
 })
-// export class MyWishlistComponent{
 export class MyWishlistComponent  implements OnInit {
   user:any
   userId: string|null = localStorage.getItem("userID"); 
   wishlistId: string|null = localStorage.getItem("wishlistID");
-  wishlist: any[] = [
-    {
-      // wishlistId:"",
-      packageID: 'P101',
-      packageImage: 'https://www.trawell.in/blog/wp-content/uploads/2024/03/ooty-main-730x410.jpg',
-      packageCountry: 'India',
-      packageCity: 'Hyderabad',
-      packageName: 'Cultural Tamil Nadu',
-      packageDesc: 'Experience the rich culture and heritage of Tamil Nadu. Visit temples, beaches, and heritage sites in Chennai, Madurai, and Thanjavur.',
-      packageRating: 4.5,
-      packagePrice: '20000',
-      packageDuration: '5 days',
-      availableDate: '2024-06-13'
-    },
-    {
-      // wishlistId:"",
-      packageID: 'P101',
-      packageImage: 'https://hblimg.mmtcdn.com/content/hubble/img/ooty/mmt/activities/t_ufs/m_activities-ooty-pykara-waterfalls_l_400_640.jpg',
-      packageCountry: 'India',
-      packageCity: 'Hyderabad',
-      packageName: 'Cultural Tamil Nadu',
-      packageDesc: 'Experience the rich culture and heritage of Tamil Nadu. Visit temples, beaches, and heritage sites in Chennai, Madurai, and Thanjavur.',
-      packageRating: 4.5,
-      packagePrice: '20000',
-      packageDuration: '5 days',
-      availableDate: '2024-06-13'
-    },
-    {
-      // wishlistId:"",
-      packageID: 'P101',
-      packageImage: 'https://hblimg.mmtcdn.com/content/hubble/img/ooty/mmt/activities/t_ufs/m_activities-ooty-pykara-waterfalls_l_400_640.jpg',
-      packageCountry: 'India',
-      packageCity: 'Hyderabad',
-      packageName: 'Cultural Tamil Nadu',
-      packageDesc: 'Experience the rich culture and heritage of Tamil Nadu. Visit temples, beaches, and heritage sites in Chennai, Madurai, and Thanjavur.',
-      packageRating: 4.5,
-      packagePrice: '20000',
-      packageDuration: '5 days',
-      availableDate: '2024-06-13'
-    }
-  ]
-  constructor(private wishlistService: UserService) {}
+  wishlist: any[] = []
+  constructor(private wishlistService: UserService, private router: Router) {}
 
   ngOnInit(): void {
+    const user = localStorage.getItem("userID");
+
+    if(!user){
+      this.router.navigate(['/signin']);
+    }
     this.wishlistService.getWishlist(this.userId,this.wishlistId).subscribe(
       (data) => {
         console.log(data);
@@ -83,7 +48,8 @@ export class MyWishlistComponent  implements OnInit {
       });
       }
     );
-    console.log("wishlist id",this.wishlistId)
+    console.log("wishlist id",this.wishlistId);
+    location.reload();
   }
   
 

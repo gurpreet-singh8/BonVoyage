@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +25,6 @@ export class UserService {
   addPackageToWishlist(userId:String|null, wishlistId:string|null,packageId: string|null):Observable<any> {
     return this.http.post(`${this.url}/${userId}/${wishlistId}/${packageId}`,{});
   }
+
+  
 }

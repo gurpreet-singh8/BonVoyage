@@ -22,7 +22,13 @@ export class SignUpComponent {
     address: '',
   };
   constructor(private userService: UserService, private router: Router) {}
+  ngOnInit(): void {
+    const user = localStorage.getItem("userID");
 
+    if(user){
+      this.router.navigate(['/home']);
+    }
+  }
   onSubmit() {
 
     this.userService.register(this.user).subscribe((data)=>{

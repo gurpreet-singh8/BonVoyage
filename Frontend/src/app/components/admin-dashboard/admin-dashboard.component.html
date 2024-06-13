@@ -1,1 +1,71 @@
-<p>admin-dashboard works!</p>
+<div class="admin-dashboard">
+    <h1>Admin Dashboard</h1>
+  
+    <div class="table-container">
+      <h2>Bookings</h2>
+      <table mat-table [dataSource]="bookings" class="mat-elevation-z8">
+        <ng-container matColumnDef="bookingId">
+          <th mat-header-cell *matHeaderCellDef> Booking ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookingId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="userId">
+          <th mat-header-cell *matHeaderCellDef> User ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageName">
+          <th mat-header-cell *matHeaderCellDef> Package Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bookingDate">
+          <th mat-header-cell *matHeaderCellDef> Booking Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookingDate}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bookingPerson">
+          <th mat-header-cell *matHeaderCellDef> Persons </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookingPerson}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bookingRooms">
+          <th mat-header-cell *matHeaderCellDef> Rooms </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookingRooms}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedBookingColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedBookingColumns;"></tr>
+      </table>
+    </div>
+  
+    <div class="table-container">
+      <h2>Packages</h2>
+      <table mat-table [dataSource]="packages" class="mat-elevation-z8">
+        <ng-container matColumnDef="packageID">
+          <th mat-header-cell *matHeaderCellDef> Package ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageID}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageName">
+          <th mat-header-cell *matHeaderCellDef> Package Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageCountry">
+          <th mat-header-cell *matHeaderCellDef> Country </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageCountry}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageCity">
+          <th mat-header-cell *matHeaderCellDef> City </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageCity}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageDesc">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageDesc}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packagePrice">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.packagePrice}} </td>
+        </ng-container>
+        <ng-container matColumnDef="packageDuration">
+          <th mat-header-cell *matHeaderCellDef> Duration </th>
+          <td mat-cell *matCellDef="let element"> {{element.packageDuration}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedPackageColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedPackageColumns;"></tr>
+      </table>
+    </div>
+  </div>

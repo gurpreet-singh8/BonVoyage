@@ -1,24 +1,25 @@
 .signup-background {
   background: url('../../Assests/background\ img.jpg') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .signup-container {
   background-color: #1d184c;
-  padding: 20px;
+  padding: 50px 30px;
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   flex-wrap: wrap;
   gap: 30px;
+  min-width: 300px;
   margin-left: auto;
     margin-right: 10rem;
 
@@ -39,23 +40,25 @@
 label {
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: large;
 }
 
 input, textarea, button {
-  padding: 10px;
+  padding: 15px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1.02rem;
   color: rgb(5, 8, 8);
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 button {
   background-color: yellow;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
   width: 50%;
@@ -63,7 +66,6 @@ button {
   font-weight: bold;
   gap: 10px;
   border-radius: 10px;
-  color: white;
   transition: background-color 0.2s ease, width 0.2s ease, padding 0.2s ease, box-shadow 0.2s ease;
   
   }
@@ -81,6 +83,7 @@ button:hover {
 
 
 @media (min-width: 768px) {
+ 
   .form-group {
     flex-direction: row;
     align-items: center;
@@ -90,7 +93,6 @@ button:hover {
     width: 30%;
     margin-bottom: 0;
     text-align: left;
-    padding-right: 10px;
     color: white;
   }
 
@@ -104,6 +106,10 @@ button:hover {
 }
 
 @media (max-width: 767px) {
+  .signup-container {
+    margin: none;
+    min-width: 300px;
+  }
   .signup-container {
     padding: 15px;
   }
@@ -121,6 +127,8 @@ button:hover {
 
   input, textarea {
     width: 100%;
+    padding: 10px;
+
   }
 }
  

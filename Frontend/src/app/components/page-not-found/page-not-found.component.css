@@ -1,0 +1,30 @@
+
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f8f8;
+  }
+  
+  div{
+    width: 100%;
+    text-align: center;
+  }
+  
+  .number{
+    background: #fff;
+    position: relative;
+    font: 900 30vmin 'Consolas';
+    letter-spacing: 5vmin;
+    text-shadow: multiple-shadow(8);
+  }
+  
+  .text{
+    font: 400 5vmin 'Courgette', cursive;
+  }
+  
+  .text span{
+    font-size: 10vmin;
+  }
