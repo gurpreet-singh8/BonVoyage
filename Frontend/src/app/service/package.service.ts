@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PackageService {
-  private url = "http://localhost:8080"
+  private url = "http://localhost:8080/api/package"
   constructor(private http: HttpClient) {}
   public getAllPackages():any{
     return this.http.get(`${this.url}/getPackages`);

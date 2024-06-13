@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/packageItenary")
+@RequestMapping("api/package")
 public class PackageItenaryController {
     private final PackageItenaryService packageItenaryService;
 
@@ -19,7 +19,7 @@ public class PackageItenaryController {
     }
 
     @CrossOrigin("*")
-    @PostMapping("/create/{packageId}")
+    @PostMapping("packageItenary/create/{packageId}")
     public ResponseEntity<PackageItenaryDto> createPackageItenary(@Valid @RequestBody PackageItenaryDto packageItenaryDto, @PathVariable String packageId){
         PackageItenaryDto packageItenaryDto1 = packageItenaryService.createPackageItenary(packageItenaryDto,packageId);
         return new ResponseEntity<>(packageItenaryDto1, HttpStatus.CREATED);

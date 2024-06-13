@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BookingService {
-  private url = "http://localhost:4000/bookings"
+  private url = "http://localhost:4000/api/bookings"
   constructor(private http: HttpClient) {}
   public createBookings(payload: any):any{
     return this.http.post(`${this.url}`,payload);
