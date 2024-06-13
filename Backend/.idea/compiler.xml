@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="config-server" />
         <module name="PackageService" />
         <module name="BookingService" />
         <module name="UsersService" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +21,9 @@
       <module name="BookingService" options="-parameters" />
       <module name="PackageService" options="-parameters" />
       <module name="UsersService" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
     </option>
   </component>
 </project>
