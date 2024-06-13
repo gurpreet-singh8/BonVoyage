@@ -1,4 +1,104 @@
+<div class="main-container">
+    <mat-toolbar>
+        <span>BONVOYAGE</span>
 
-<app-navbar></app-navbar>
+        <span class="example-spacer"></span>
 
-<router-outlet></router-outlet>
+        <div fxShow="true" class="menu-item" fxHide.lt-md="true">
+            <a routerLink="/" mat-button>Home</a>
+            <a routerLink="/packages" mat-button>Packages</a>
+            @if(user){
+            <a routerLink="/mybookings" mat-button>My Booking</a>
+            <a routerLink="/mywishlist" mat-button>WishList</a>
+            @if(role == "admin"){
+            <a routerLink="/admin" mat-button>Admin Dashboard</a>
+            }
+
+            }
+            <a routerLink="/faq" mat-button>FAQ</a>
+            @if(!user){
+            <a routerLink="/signin" style="color: rgb(223, 223, 25); font-weight: bold;" mat-button>Login</a>
+            <a routerLink="/signup" style="color: rgb(223, 223, 25); font-weight: bold;" mat-button>SignUp</a>
+            }@else {
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <p style="text-transform: capitalize; font-size: large; border-bottom: 2px solid red; color: rgb(255, 255, 255);">Hi, {{role}}</p>
+                    <p style="color: red; font-weight: bold; cursor: pointer;" (click)="logout()">LogOut</p>
+                </div>
+            }
+
+        </div>
+
+        <div fxShow="true" fxHide.gt-sm="true">
+            <div (click)="sidenav.toggle()">
+                <mat-icon>list</mat-icon>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill class="example-container">
+        <mat-sidenav #sidenav fxLayout="column">
+            <div fxLayout="column">
+                <a routerLink="/" mat-button>Home</a>
+                <a routerLink="/packages" mat-button>Packages</a>
+                @if(user){
+                <a routerLink="/mybookings" mat-button>My Booking</a>
+                <a routerLink="/mywishlist" mat-button>WishList</a>
+                @if(role == "admin"){
+                <a routerLink="/admin" mat-button>Admin Dashboard</a>
+                }
+
+                }
+                <a routerLink="/faq" mat-button>FAQ</a>
+                @if(!user){
+                <a routerLink="/signin" style="color: rgb(223, 223, 25); font-weight: bold;" mat-button>Login</a>
+                <a routerLink="/signup" style="color: rgb(223, 223, 25); font-weight: bold;" mat-button>SignUp</a>
+                }@else {
+                <a style="color: red; font-weight: bold; cursor: pointer;" (click)="logout()" mat-button>LogOut</a>
+                }
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <router-outlet />
+
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section footer-brand">
+                        <h3>BonVoyage</h3>
+                        <p>We always make our customers happy by providing as many choices as possible</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a href="">About Us</a></li>
+                            <li><a href="">Menu</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/faq">FAQ</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li>Contact Us</li>
+                            <li>support.bonvoyage&#64;gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section newsletter" style="margin-left: 50px;">
+                        <h4>Subscribe on our destination review newsletters</h4>
+                        <input type="email" placeholder="Your Email">
+                    </div>
+                </div>
+            </footer>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,24 +1,26 @@
-<p class="p"><strong> FOVOURITE PLACES</strong></p>
-<div class="wishlist-container">
-  <div *ngIf="wishlist.length">
-  <div class="wishlist-item" *ngFor="let item of wishlist">
-  
-    <img class="wishlist-image" [src]="item.packageImage" alt="Package Image">
-    <div class="wishlist-content">
-      <h3>{{ item.packageName }}</h3>
-      <p><strong>Country:</strong> {{ item.packageCountry }}</p>
-      <p><strong>City:</strong> {{ item.packageCity }}</p>
-      <p><strong>Description:</strong> {{ item.packageDesc }}</p>
-      <p><strong>Rating:</strong> {{ item.packageRating }}</p>
-      <p><strong>Reviews:</strong> {{ item.packageReviews }}</p>
-      <p><strong>Price:</strong> {{ item.packagePrice }}</p>
-      <p><strong>Duration:</strong> {{ item.packageDuration }}</p>
-      <p><strong>Pickup:</strong> {{ item.packagePickup }}</p>
-      <p><strong>Available Dates:</strong> {{ item.availableDate }}</p>
+
+<div class="wishlist-container" *ngIf="wishlist.length">
+    <div class="wishlist-item" *ngFor="let item of wishlist">
+
+      <img class="wishlist-image" [src]="item.packageImage" alt="Package Image">
+      <div class="wishlist-content">
+        <h3>{{ item.packageName }}</h3>
+        <p><strong>Country:</strong> {{ item.packageCountry }}</p>
+        <p><strong>City:</strong> {{ item.packageCity }}</p>
+        <p><strong>Description:</strong> {{ item.packageDesc }}</p>
+        <p><strong>Rating:</strong> {{ item.packageRating }}</p>
+        <p><strong>Reviews:</strong> {{ item.packageReviews }}</p>
+        <p><strong>Price:</strong> {{ item.packagePrice }}</p>
+        <p><strong>Duration:</strong> {{ item.packageDuration }}</p>
+        <p><strong>Pickup:</strong> {{ item.packagePickup }}</p>
+        <p><strong>Available Dates:</strong> {{ item.availableDate }}</p>
+      </div>
+      <button class="delete-button" (click)="removeFromWishlist(item.packageID)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
-    <button class="delete-button" (click)="removeFromWishlist(item.packageID)">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </div>
 </div>
+<div  style="height: 70vh;text-align: center; display: flex; align-items: center; justify-content: center; flex-direction: column;" *ngIf="!wishlist.length">
+  <h1>There Is No Package In Wishlist</h1>
+  <p>Explore packages and add your favorite package in Wishlist</p>
 </div>

@@ -39,6 +39,11 @@ export class MyBookingsComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    const user = localStorage.getItem("userID");
+
+    if(!user){
+      this.router.navigate(['/signin']);
+    }
     this.getBookings();
    
     this.myForm = new FormGroup({

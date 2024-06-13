@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 html, body {
     height: 100%;
     background-color: #e7dff450;
-    background-image: url("../public/img/back4.gif");
-    background-position: center;
   
  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -12,9 +12,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; 
+    font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 svg{
     fill: white !important;
 }
