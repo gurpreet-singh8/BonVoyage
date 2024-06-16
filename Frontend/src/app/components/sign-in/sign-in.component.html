@@ -1,19 +1,26 @@
 <div class="signin-background">
-  <div class="signin-container" >
+  <div class="signin-container">
     <h5>LogIn</h5>
-    <form (ngSubmit)="onSubmit()">
-      
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" [(ngModel)]="user.email" name="email" required placeholder=" Enter Email ">
+        <input type="email" id="email" formControlName="email" placeholder="Enter Email">
       </div>
-    
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+        Enter a valid email
+      </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" [(ngModel)]="user.password" name="password" required placeholder="Enter Password">
+        <input type="password" id="password" formControlName="password" placeholder="Enter Password">
+      </div>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+        Password is required
       </div>
       <div class="button-container">
-        <button type="submit">LogIn</button>
+        <button type="submit" [disabled]="loginForm.invalid">LogIn</button>
+      </div>
+      <div *ngIf="backendError" class="text-danger backend-error">
+        {{ backendError }}
       </div>
     </form>
   </div>

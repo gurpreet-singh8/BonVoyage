@@ -62,6 +62,10 @@ export class PackagePageComponent implements OnInit {
       console.log(data);
       this.checkWishlist();
 
+    },
+    (error: any) => {
+      this.router.navigate(['/404']);
+      console.error('Error fetching wishlist', error);
     });
     this.myForm = new FormGroup({
       bookingRooms: new FormControl(null, [Validators.required, Validators.min(1)]),

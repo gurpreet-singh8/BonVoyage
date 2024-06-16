@@ -1,5 +1,5 @@
 .signin-background {
-  background: url('../../Assests/background img.jpg') no-repeat center center fixed;
+  background: url('../../Assests/travel-accessories-copy-space.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -19,7 +19,6 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: 10rem;
-
 }
 
 .signin-container h5 {
@@ -32,12 +31,12 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-
 }
 
 label {
   margin-bottom: 5px;
   font-size: large;
+  color: white;
 }
 
 input, textarea, button {
@@ -60,19 +59,33 @@ button {
   width: 50%;
   padding: 15px;
   font-weight: bold;
-  
-  }
-  .button-container {
-    display: flex;
-    justify-content: center;
-  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
 
 button:hover {
   background-color: yellow;
 }
+button:disabled{
+  background-color: rgb(104, 104, 23);
+  cursor: not-allowed;
+}
+
+.text-danger {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.backend-error {
+  margin-top: 10px;
+  text-align: center;
+}
 
 @media (min-width: 768px) {
-  
   .form-group {
     flex-direction: row;
     align-items: center;
@@ -83,7 +96,6 @@ button:hover {
     margin-bottom: 0;
     text-align: left;
     padding-right: 10px;
-    color: white;
   }
 
   input, textarea {
@@ -112,7 +124,6 @@ button:hover {
   label {
     text-align: left;
     padding-right: 0;
-    color: aliceblue;
   }
 
   input, textarea {
