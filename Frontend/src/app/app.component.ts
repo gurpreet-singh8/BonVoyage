@@ -31,8 +31,10 @@ export class AppComponent {
   ngOnInit(): void {
     this.user = localStorage.getItem("userID");
     this.role = localStorage.getItem("role");
-    
-
+    if(this.role == "null"){
+      
+      this.role = "user";
+    }
   }
   logout() {
     localStorage.clear();
